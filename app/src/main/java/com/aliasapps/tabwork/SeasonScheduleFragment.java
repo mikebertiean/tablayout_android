@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,7 @@ public class SeasonScheduleFragment extends Fragment {
 
         //view pager setup
         viewPager = view.findViewById(R.id.viewpager);
+        viewPager.setOffscreenPageLimit(1);
 
         //tab layout setup
         tabLayout = view.findViewById(R.id.tabs);
@@ -59,9 +61,15 @@ public class SeasonScheduleFragment extends Fragment {
 
         //adapter setup
         adapter = new ViewPagerAdapter(getFragmentManager());
+
         adapter.addFrag(SeasonGameListFragment.newInstance(new Date().toString()), new Date().toString());
+
+        for(int i = 0; i < 3000; i++){Log.d("Mike", i+"");}//make the program wait a bit
         adapter.addFrag(SeasonGameListFragment.newInstance(new Date().toString()), new Date().toString());
+
+        for(int i = 0; i < 3000; i++){Log.d("Mike", i+"");}//make the program wait a bit
         adapter.addFrag(SeasonGameListFragment.newInstance(new Date().toString()), new Date().toString());
+
         viewPager.setAdapter(adapter);
 
         Button button = view.findViewById(R.id.button);
@@ -69,7 +77,6 @@ public class SeasonScheduleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 adapter.addFrag(SeasonGameListFragment.newInstance(new Date().toString()), new Date().toString());
-                adapter.notifyDataSetChanged();
             }
         });
 
@@ -78,7 +85,6 @@ public class SeasonScheduleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 adapter.removeFrag(tabLayout.getSelectedTabPosition());
-                adapter.notifyDataSetChanged();
             }
         });
 

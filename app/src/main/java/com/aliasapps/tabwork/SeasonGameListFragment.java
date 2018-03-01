@@ -2,6 +2,7 @@ package com.aliasapps.tabwork;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,8 @@ public class SeasonGameListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tab_content, container, false);
+
+        Log.wtf("MIKE", "Created a new one");
 
         TextView date = view.findViewById(R.id.time);
         date.setText(dateString);

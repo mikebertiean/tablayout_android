@@ -2,7 +2,7 @@ package com.aliasapps.tabwork;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * Created by mike on 2018-03-01.
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -32,11 +32,15 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public void addFrag(Fragment fragment, String title) {
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
+
+        notifyDataSetChanged();
     }
 
     public void removeFrag(int position){
         mFragmentList.remove(position);
         mFragmentTitleList.remove(position);
+
+        notifyDataSetChanged();
     }
 
     @Override
