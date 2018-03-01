@@ -36,6 +36,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     public void removeFrag(int position){
         mFragmentList.remove(position);
+        mFragmentTitleList.remove(position);
     }
 
     @Override
