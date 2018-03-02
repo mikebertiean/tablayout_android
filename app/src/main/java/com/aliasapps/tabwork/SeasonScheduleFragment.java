@@ -57,7 +57,7 @@ public class SeasonScheduleFragment extends Fragment {
 
         //tab layout setup
         tabLayout = view.findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager, true);
 
         //adapter setup
         adapter = new ViewPagerAdapter(getFragmentManager());
